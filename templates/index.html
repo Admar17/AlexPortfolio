@@ -9,34 +9,168 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
             background-color: #f4f4f4;
-        }
-        .container {
-            text-align: center;
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
             color: #333;
         }
-        p {
-            color: #666;
+        header, footer {
+            background-color: #333;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 20px;
+        }
+        .profile {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+        .links a {
+            margin: 0 10px;
+            text-decoration: none;
+            color: #333;
+            font-weight: bold;
+        }
+        .links a:hover {
+            color: #007BFF;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .section h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .projects, .skills, .contact {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .project-item, .skill-item {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            width: 80%;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+        .contact a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .contact a:hover {
+            text-decoration: underline;
+        }
+        @media (min-width: 768px) {
+            .profile {
+                flex-direction: row;
+                align-items: center;
+            }
+            .profile img {
+                margin-right: 20px;
+                margin-bottom: 0;
+            }
+            .links {
+                text-align: left;
+            }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to My AI/ML Portfolio</h1>
+        <h1>Welcome to Alex Martinez's AI/ML Portfolio</h1>
+    </header>
+    <div class="container">
+        <section class="profile">
+            <img src="{{ url_for('static', filename='images/profile3.png') }}" alt="Alex Martinez">
+            <div class="links">
+                <a href="https://github.com/Admar17" target="_blank">GitHub</a>
+                <a href="https://www.linkedin.com/in/admar17/" target="_blank">LinkedIn</a>
+                <a href="https://www.youtube.com/channel/UCU1-iqarcTJjq39ZQzvXKOQ" target="_blank">YouTube</a>
+                <a href="https://www.scrubbil.com" target="_blank">Scrubbil AI</a>
+                <a href="https://www.busybee.run" target="_blank">Busy Bee Running</a>
+                <a href="{{ url_for('static', filename='docs/AlexisMartinezFall2024Resume3.pdf') }}" target="_blank">View Resume</a>
+            </div>
+        </section>
 
+        <section class="section projects">
+            <h2>Projects</h2>
+            <h5>Note: All projects shown here are public projects; all private work can be viewed upon request</h5>
+            <h5>Most work in a private repo is distrbuted between Scrubbil AI and Busy Bee Running</h5>
 
+            <div class="project-item">
+                <h3>Text Redaction Using Named-Entity Recognition and Large Language Models</h3>
+                <p>Paper on using stacked LLMs to determine the efficacy of redacting senstive text data</p>
+                <a href="{{ url_for('static', filename='docs/CapstoneFinal.pdf') }}" target="_blank">Read Capstone PDF</a>
+            </div>
+
+            <div class="project-item">
+                <h3>Stock Forecaster Competing Models</h3>
+                <p>A Comparison Tool Used for Fun to Check Different Time Series Models and How They Each Forecasted Future Stock Predictions</p>
+                <a href="https://github.com/Admar17/StockForecaster" target="_blank">View on GitHub</a>
+            </div>
+            <div class="project-item">
+                <h3>Senior Year Project</h3>
+                <p>Time series forecast methods for helping determing demand, supply, and income for dentists.</p>
+                <a href="https://github.com/Admar17/mango-tango" target="_blank">View on GitHub</a>
+            </div>
+            <!-- Add more projects as needed -->
+        </section>
+
+        <section class="section skills">
+            <h2>Skills</h2>
+            
+            <div class="skill-item">
+                <h3>Programming Languages</h3>
+                <p>Python, SQL, R</p>
+            </div>
+            
+            <div class="skill-item">
+                <h3>Machine Learning & Data Science</h3>
+                <p>Time Series Forecasting, Optimization Algorithms, Statistical Modeling, Natural Language Processing</p>
+            </div>
+            
+            <div class="skill-item">
+                <h3>Tools & Technologies</h3>
+                <p>Python Dash, Tableau, R Shiny, Databricks</p>
+            </div>
+            
+            <div class="skill-item">
+                <h3>Data Visualization</h3>
+                <p>Proficient in creating interactive dashboards</p>
+            </div>
+            
+            <div class="skill-item">
+                <h3>Collaboration & Leadership</h3>
+                <p>Cross-functional team collaboration, strategic planning</p>
+            </div>
+            
+            <div class="skill-item">
+                <h3>Languages</h3>
+                <p>English, Spanish</p>
+            </div>
+            
+        </section>
+        
+
+        <section class="section contact">
+            <h2>Contact</h2>
+            <p>Feel free to reach out to me via <a href="mailto:alexdan9430@gmail.com">email</a> or connect with me on <a href="https://linkedin.com/in/admar17" target="_blank">LinkedIn</a>.</p>
+        </section>
+    </div>
     <footer>
-        <p>&copy; 2024 Your Name</p>
+        <p>&copy;2024 Alex Martinez</p>
     </footer>
 </body>
 </html>
